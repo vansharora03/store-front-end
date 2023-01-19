@@ -1,8 +1,11 @@
+import NavBar from './NavBar';
+
 
 function Home() {
   return (
-    <div className="App">
-     Home
+    <div className="Home">
+      <NavBar/>
+      <h1 className="page-title">Home</h1>
     </div>
   );
 }
