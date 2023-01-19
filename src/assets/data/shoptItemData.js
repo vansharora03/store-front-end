@@ -1,0 +1,2 @@
+const data = [    {        "id": "1",        "name": "item1",        "price": "20",        "imgSrc": "https://example.com/images/item1.jpg"    },    {        "id": "2",        "name": "item2",        "price": "15",        "imgSrc": "https://example.com/images/item2.jpg"    },    {        "id": "3",        "name": "item3",        "price": "25",        "imgSrc": "https://example.com/images/item3.jpg"    },    {        "id": "4",        "name": "item4",        "price": "30",        "imgSrc": "https://example.com/images/item4.jpg"    }]
+export default data;
