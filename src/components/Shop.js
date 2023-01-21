@@ -11,6 +11,10 @@ export default function Shop() {
     }, [])
 
     const showItems = (e) => {
+        if(e.target.dataset.item === 'all') {
+            setViewable(items);
+            return;
+        }
         const showing = items.filter(item => {
             return item.type === e.target.dataset.item;
         });
@@ -20,6 +24,7 @@ export default function Shop() {
     return (
         <div className="Shop">
             <h1 className="page-title">Shop</h1>
+            <button data-item="all" className='show-item' onClick={showItems}>All Items</button>
             <button data-item="laptop" className='show-item' onClick={showItems}>Show Laptops</button>
             <button data-item="phone" className='show-item' onClick={showItems}>Show Phone</button>
             <button data-item="console" className='show-item' onClick={showItems}>Show Consoles</button>
