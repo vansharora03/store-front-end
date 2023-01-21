@@ -10,9 +10,19 @@ export default function Shop() {
         setViewable(data);
     }, [])
 
+    const showItems = (e) => {
+        const showing = items.filter(item => {
+            return item.type === e.target.dataset.item;
+        });
+        setViewable(showing);
+    }
+
     return (
         <div className="Shop">
             <h1 className="page-title">Shop</h1>
+            <button data-item="laptop" className='show-item' onClick={showItems}>Show Laptops</button>
+            <button data-item="phone" className='show-item' onClick={showItems}>Show Phone</button>
+            <button data-item="console" className='show-item' onClick={showItems}>Show Consoles</button>
             <ShopView items={viewable}/>
         </div>
     );
