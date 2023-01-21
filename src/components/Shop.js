@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import ShopView from './ShopView';
 import data from '../assets/data/shoptItemData';
 
-export default function Shop() {
+export default function Shop({addToCart}) {
     const [items, setItems] = useState([]);
     const [viewable, setViewable] = useState([]);
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Shop() {
             <button data-item="laptop" className='show-item' onClick={showItems}>Show Laptops</button>
             <button data-item="phone" className='show-item' onClick={showItems}>Show Phone</button>
             <button data-item="console" className='show-item' onClick={showItems}>Show Consoles</button>
-            <ShopView items={viewable}/>
+            <ShopView items={viewable} addToCart={addToCart}/>
         </div>
     );
 }

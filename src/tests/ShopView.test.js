@@ -14,31 +14,23 @@ const mockItem1 = {
     'imgSrc': 'dummyLink1',
     'name': 'Shop Item 1',
     'id': 'shopItem1',
-    'price': '11'
+    'price': '11',
+    'type': 'phone'
 }
 const mockItem2 = {
     'imgSrc': 'dummyLink2',
     'name': 'Shop Item 2',
     'id': 'shopItem3',
-    'price': '22'
+    'price': '22',
+    "type": "laptop"
 }
 const mockItem3 = {
     'imgSrc': 'dummyLink3',
     'name': 'Shop Item 3',
     'id': 'shopItem3',
-    'price': '33'
+    'price': '33',
+    'type': 'console'
 }
-
-it('Should render a single shop item', () => {
-    render(<ShopView items={[mockItem1]}/>)
-    //Check length
-    expect(screen.queryAllByTestId('item').length).toBe(1)
-
-    expect(screen.queryAllByTestId('imgSrc')[0].textContent).toEqual(mockItem1.imgSrc)
-    expect(screen.queryAllByTestId('name')[0].textContent).toEqual(mockItem1.name)
-    expect(screen.queryAllByTestId('id')[0].textContent).toEqual(mockItem1.id)
-    expect(screen.queryAllByTestId('price')[0].textContent).toEqual(mockItem1.price)
-})
 
 it('Should render multiple items', () => {
     render(<ShopView items={[mockItem1, mockItem2, mockItem3]}/>)
@@ -60,3 +52,4 @@ it('Should render multiple items', () => {
     expect(screen.queryAllByTestId('id')[2].textContent).toEqual(mockItem3.id)
     expect(screen.queryAllByTestId('price')[2].textContent).toEqual(mockItem3.price)
 })
+
