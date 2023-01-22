@@ -28,6 +28,34 @@ export default function RouteSwitcher() {
         setCartSize(cartSize + 1);
     }
 
+    //Removes an item from the master cart
+    const removeFromCart = (item) => {
+        //Remove from cartItems
+        let newCart = cartItems;
+
+        //Get index of the item to remove
+        let removeIndex = 0;
+        let i = 0;
+        newCart.forEach(currItem => {
+            if(currItem.id === item.id) {
+                removeIndex = i;
+            }
+            i++;
+        })
+        //Reduce quantity of removed item
+        newCart[removeIndex].quantity--;
+        //Remove from newCart if quantity is 0
+        if(newCart[removeIndex].quantity <= 0) {
+            newCart.splice(removeIndex, 1);
+        }
+
+        //Update cartItems
+        setCartItems(newCart);
+
+        //Update cartSize
+        setCartSize(cartSize - 1);
+    }
+
     return (
         <BrowserRouter>
         <div className='App'>
@@ -37,7 +65,7 @@ export default function RouteSwitcher() {
             {/* Create routes from paths */}
             <Route path='/' element={<Home/>} />
             <Route path='/shop'element={<Shop addToCart={addToCart}/>}/>
-            <Route path='/cart'element={<Cart cartItems={cartItems}/>}/>
+            <Route path='/cart'element={<Cart cartItems={cartItems} removeFromCart={removeFromCart}/>}/>
             </Routes>
         </div>
         </BrowserRouter>
