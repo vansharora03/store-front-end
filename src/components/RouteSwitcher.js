@@ -13,19 +13,19 @@ export default function RouteSwitcher() {
     const [cartSize, setCartSize] = useState(0);
 
     //Pass this function down to add items to the master cart, update cart size
-    const addToCart = (item) => {
+    const addToCart = (item, amount=1) => {
         //Add to cartItems
         const newCart = cartItems;
         if(item.quantity) {
-            item.quantity++;
+            item.quantity += parseInt(amount);
         }
         else {
-            item.quantity = 1;
+            item.quantity = parseInt(amount);
             newCart.push(item);
         }
         setCartItems(newCart);
         //Update cart size
-        setCartSize(cartSize + 1);
+        setCartSize(cartSize + parseInt(amount));
     }
 
     //Removes an item from the master cart

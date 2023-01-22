@@ -1,7 +1,11 @@
 export default function Cart({cartItems, removeFromCart}) {
+    //Calculate the total price of the cart items
     const total = cartItems.reduce((total, item) => total + item.price*item.quantity,0)
+
+
     return (
         <div className="Cart">
+            {/* Contains all items in the cart, with their quantity and respective total price, as well as a total cart price at the bottom */}
             <div className="cart-item-container">
                 {cartItems.map(item =>
                 <div className="cart-item" key={`cart-item-${item.id}`}>
