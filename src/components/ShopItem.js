@@ -18,7 +18,7 @@ export default function ShopItem({item, addToCart}) {
         <img key={`img-${item.id}`} src={item.imgSrc} alt={item.name} className="shop-item-image"/>
         <h3 key={`name-${item.id}`} className="shop-item-name">{item.name}</h3>
         <p key={`price-${item.id}`} className="shop-item-price">{item.price}</p>
-        <input key={`amount-${item.id}`} type="number" onChange={handleChange} className="shop-item-amount" value={amount}/>
+        <input data-testid="amount" key={`amount-${item.id}`} type="number" onChange={handleChange} className="shop-item-amount" value={amount}/>
         <button key={`add-to-cart-${item.id}`} className="add-to-cart" onClick={()=>addToCart(item, amount)}>Add To Cart</button>
     </div>
     )

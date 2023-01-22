@@ -3,11 +3,11 @@ import ShopView from "../components/ShopView"
 
 //Mock the child component ShopItem
 jest.mock('../components/ShopItem', () => ({item}) => {
-    return (<div data-testid="item">
-                <div data-testid="imgSrc">{item.imgSrc}</div>
-                <div data-testid="name">{item.name}</div>
-                <div data-testid="id">{item.id}</div>
-                <div data-testid="price">{item.price}</div>
+    return (<div key={`item-${item.id}`} data-testid="item">
+                <div key={`img-${item.id}`} data-testid="imgSrc">{item.imgSrc}</div>
+                <div key={`name-${item.id}`} data-testid="name">{item.name}</div>
+                <div key={`id-${item.id}`} data-testid="id">{item.id}</div>
+                <div key={`price-${item.id}`} data-testid="price">{item.price}</div>
             </div>)
 })
 
@@ -22,7 +22,7 @@ const mockItem1 = {
 const mockItem2 = {
     'imgSrc': 'dummyLink2',
     'name': 'Shop Item 2',
-    'id': 'shopItem3',
+    'id': 'shopItem2',
     'price': '22',
     "type": "laptop"
 }
