@@ -2,6 +2,7 @@ import {Route, BrowserRouter, Routes} from 'react-router-dom'
 import Home from './Home'
 import Shop from './Shop'
 import NavBar from './NavBar'
+import Cart from './Cart'
 import { useState } from 'react'
 
 //This component displays the app and routes the app paths
@@ -28,6 +29,7 @@ export default function RouteSwitcher() {
             {/* Create routes from paths */}
             <Route path='/' element={<Home/>} />
             <Route path='/shop'element={<Shop addToCart={addToCart}/>}/>
+            <Route path='/cart'element={<Cart cartItems={cartItems}/>}/>
             </Routes>
         </div>
         </BrowserRouter>
