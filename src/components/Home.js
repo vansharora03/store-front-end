@@ -1,3 +1,4 @@
+//This component displays the Homepage
 function Home() {
   return (
     <div className="Home">

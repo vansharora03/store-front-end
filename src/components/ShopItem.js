@@ -1,3 +1,4 @@
+//Take an item and display some information for it
 export default function ShopItem({item, addToCart}) {
     return (
     <div key={`item-${item.id}`} className="shop-item">

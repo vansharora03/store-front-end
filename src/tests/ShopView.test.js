@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import ShopView from "../components/ShopView"
 
+//Mock the child component ShopItem
 jest.mock('../components/ShopItem', () => ({item}) => {
     return (<div data-testid="item">
                 <div data-testid="imgSrc">{item.imgSrc}</div>
@@ -10,6 +11,7 @@ jest.mock('../components/ShopItem', () => ({item}) => {
             </div>)
 })
 
+//Mock items
 const mockItem1 = {
     'imgSrc': 'dummyLink1',
     'name': 'Shop Item 1',
@@ -37,6 +39,7 @@ it('Should render multiple items', () => {
     //Check length
     expect(screen.queryAllByTestId('item').length).toBe(3)
 
+    //Check contents
     expect(screen.queryAllByTestId('imgSrc')[0].textContent).toEqual(mockItem1.imgSrc)
     expect(screen.queryAllByTestId('name')[0].textContent).toEqual(mockItem1.name)
     expect(screen.queryAllByTestId('id')[0].textContent).toEqual(mockItem1.id)

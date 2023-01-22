@@ -2,14 +2,18 @@ import { useEffect, useState } from 'react';
 import ShopView from './ShopView';
 import data from '../assets/data/shoptItemData';
 
+//Render the shop page, continue passing down addToCart function
 export default function Shop({addToCart}) {
+    //store all items in state
     const [items, setItems] = useState([]);
+    //store viewable items in state
     const [viewable, setViewable] = useState([]);
     useEffect(() => {
         setItems(data);
         setViewable(data);
     }, [])
 
+    //allow filtering of all items through viewable
     const showItems = (e) => {
         if(e.target.dataset.item === 'all') {
             setViewable(items);
