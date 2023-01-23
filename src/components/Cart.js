@@ -9,12 +9,12 @@ export default function Cart({cartItems, removeFromCart}) {
             <div className="cart-item-container">
                 {cartItems.map(item =>
                 <div className="cart-item" key={`cart-item-${item.id}`}>
-                    <div className="cart-label" key={`cart-label-${item.id}`}>{item.name}: {item.quantity} items for ${(item.quantity*item.price).toFixed(2)}</div>
+                    <div className="cart-label" key={`cart-label-${item.id}`}>{item.name}: {item.quantity} items for $<span data-testid="item-total">{(item.quantity*item.price).toFixed(2)}</span></div>
                     <button className="remove-cart-item" key={`remove-cart-item-${item.id}`} onClick={()=>removeFromCart(item)}>-</button>
                 </div> 
                 )}
             </div>
-            <div className="total-price">Total: ${total.toFixed(2)}</div>
+            <div className="total-price">Total: $<span data-testid="total">{total.toFixed(2)}</span></div>
         </div>
         )
 }
