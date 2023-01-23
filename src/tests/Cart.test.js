@@ -42,3 +42,4 @@ it("Should have proper total", () => {
     //Check
     expect(screen.getByTestId('total').textContent).toEqual('82.20')
 })
+

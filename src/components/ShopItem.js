@@ -8,7 +8,7 @@ export default function ShopItem({item, addToCart}) {
     const handleChange = (e) => {
         //prevent negatives
         if(e.target.value <= 0) {
-            e.target.value = 0;
+            e.target.value = 1;
         }
         setAmount(e.target.value);
     }
@@ -19,7 +19,12 @@ export default function ShopItem({item, addToCart}) {
         <h3 key={`name-${item.id}`} className="shop-item-name">{item.name}</h3>
         <p key={`price-${item.id}`} className="shop-item-price">{item.price}</p>
         <input data-testid="amount" key={`amount-${item.id}`} type="number" onChange={handleChange} className="shop-item-amount" value={amount}/>
-        <button key={`add-to-cart-${item.id}`} className="add-to-cart" onClick={()=>addToCart(item, amount)}>Add To Cart</button>
+        <button key={`add-to-cart-${item.id}`} className="add-to-cart" onClick={()=>{
+            //Add to cart on press
+            addToCart(item, amount);
+            //Reset amount to default value
+            setAmount('1');
+            }}>Add To Cart</button>
     </div>
     )
 }
