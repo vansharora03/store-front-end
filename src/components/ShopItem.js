@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../assets/styles/ShopItem.css';
 //Take an item and display some information for it
 export default function ShopItem({item, addToCart}) {
     //Store the amount to be added to cart
